@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup as bs
 from bs4 import Tag
+import time
 
 TIMEOUT = 60 #seconds
 URL = 'https://ui.adsabs.harvard.edu/abs/2023arXiv230508746L/citations'
@@ -39,8 +40,8 @@ finally:
       
       if isinstance(li, Tag):
           title = li.find('h3')
-          print(title.text)
-
+          print(title)
+          # print(title.text)
           author_container = li.find('ul', { "class": "just-authors"})
 
           if author_container != None:
